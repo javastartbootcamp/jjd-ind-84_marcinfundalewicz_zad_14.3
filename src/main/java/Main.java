@@ -17,20 +17,12 @@ public class Main {
 
     void run(Scanner scanner) {
         try {
-            if (fileExists(file)) {
-                Map<String, Country> countries = fillMapFromFile();
-                String line = reader(scanner);
-                printInfo(line, countries);
-            } else {
-                System.out.println("Brak pliku " + fileName + ".");
-            }
+            Map<String, Country> countries = fillMapFromFile();
+            String line = reader(scanner);
+            printInfo(line, countries);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Brak pliku " + fileName + ".");
         }
-    }
-
-    private boolean fileExists(File file) {
-        return file.exists();
     }
 
     private static String reader(Scanner scanner) {
